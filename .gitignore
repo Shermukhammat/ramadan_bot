@@ -6,7 +6,7 @@ __pycache__/
 #My files
 config.py
 ./env
-
+scraping/images
 # C extensions
 *.so
 

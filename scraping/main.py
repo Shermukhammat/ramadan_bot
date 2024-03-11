@@ -69,12 +69,16 @@ def get_region_data(city : str):
 
 
 cites = get_cites()
-meta_data = {}
-for city, key in cites.items():
-    print(city)
-    city_data = get_region_data(key)
-    meta_data[city] = city_data
+print(cites.keys())
+# meta_data = {}
+# for city, key in cites.items():
+#     print(city)
+#     city_data = get_region_data(key)
+#     meta_data[city] = city_data
     
 
-with open("data/ramadan.json", 'w') as file:
-    json.dump(meta_data, file)
+# with open("data/ramadan.json", 'w') as file:
+#     json.dump(meta_data, file)
+    
+    
+
