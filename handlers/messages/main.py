@@ -78,7 +78,7 @@ async def main_message_handler(update : types.Message, state : FSMContext):
                 await update.answer("Ilimos o'z shahringizni tanlang 👇🏻", reply_markup = keyboard.city_buttons())
                 
         else:
-            await update.answer("Quydagi tugmalrdan birni bosing", reply_markup = keyboard.main_menu())
+            await update.answer("Quydagi tugmalardan birni bosing", reply_markup = keyboard.main_menu())
     
     else:
         await update.answer(f"Assalomu alaykum {update.from_user.first_name} men @ramazon2024_robot man. Men sizga iftorlik va saharlik vaxtlarni aytib bera olaman!",
