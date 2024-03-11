@@ -20,6 +20,25 @@ class DataBase:
         # Creating temorary data
         self.users = self.get_users()
         self.admins = self.get_admins()
+        self.city_data = {'Andijon' : 'andijon.png', 
+                          'Bekobod' : 'bekobod.png', 
+                          'Buxoro': 'buxoro.png', 
+                          'Denov': 'denov.png', 
+                          'Farg‘ona': 'fargana.png', 
+                          'Guliston': 'guliston.png', 
+                          'Jizzax': 'jizzax.png', 
+                          'Kattako‘rg‘on': 'kattakorgan.png', 
+                          'Namangan': 'namangan.png', 
+                          'Navoiy': 'navoiy.png', 
+                          'Nukus': 'nukus.png', 
+                          'Nurota': 'nurota.png', 
+                          'Qarshi': 'qarshi.png', 
+                          'Qo‘qon': 'qoqon.png', 
+                          'Samarqand': 'samarqand.png', 
+                          'Shahrisabz': 'shaxrisabiz.png', 
+                          'Termiz': 'termiz.png', 
+                          'Toshkent': 'toshkent.png', 
+                          'Urganch': 'urganch.png'}
     
 
         self.settings_path = settings_path

@@ -65,11 +65,23 @@ async def main_message_handler(update : types.Message, state : FSMContext):
                 await state.set_state(states.chose_region)
                 await update.answer("Ilimos o'z shahringizni tanlang 👇🏻", reply_markup = keyboard.city_buttons())
             
+    
+        elif update.text == "🗓 To'liq taqvim":
+            region = db.users[update.from_user.id]['region']
+            if region:
+                photo_file = db.city_data.get(region)
+                await bot.send_photo(chat_id = update.from_user.id, 
+                                     photo = open(f'data/images/{photo_file}', 'rb'), 
+                                     caption = f"🕌 {region} shahri 2024-yil ramazon taqvimi")
+            else:
+                await state.set_state(states.chose_region)
+                await update.answer("Ilimos o'z shahringizni tanlang 👇🏻", reply_markup = keyboard.city_buttons())
+                
         else:
             await update.answer("Quydagi tugmalrdan birni bosing", reply_markup = keyboard.main_menu())
     
     else:
-        await update.answer(f"Assalomu alykum {update.from_user.first_name} men @ramazon2024_robot man. Men sizga iftorlik va saharlik vaxtlarni aytib bera olaman!",
+        await update.answer(f"Assalomu alaykum {update.from_user.first_name} men @ramazon2024_robot man. Men sizga iftorlik va saharlik vaxtlarni aytib bera olaman!",
                             reply_markup = keyboard.main_menu())
         db.registir(id = update.from_user.id, name = update.from_user.first_name)
         

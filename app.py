@@ -1,7 +1,6 @@
 from loader import dp
 from aiogram import executor
-import logging, handlers
-
+import logging, handlers, middlewares
 
 
 if __name__ == '__main__':

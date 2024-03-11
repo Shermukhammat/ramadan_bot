@@ -12,7 +12,7 @@ class ThrottlingMiddleware(BaseMiddleware):
     Simple middleware
     """
 
-    def __init__(self, limit=2, key_prefix='antiflood_'):
+    def __init__(self, limit=50, key_prefix='antiflood_'):
         self.rate_limit = limit
         self.prefix = key_prefix
         super(ThrottlingMiddleware, self).__init__()
@@ -33,5 +33,5 @@ class ThrottlingMiddleware(BaseMiddleware):
             raise CancelHandler()
 
     async def message_throttled(self, message: types.Message, throttled: Throttled):
-        if throttled.exceeded_count <= 5:
+        if throttled.exceeded_count <= 50:
             await message.reply("Ko'p so'ro'v jo'natildi")
