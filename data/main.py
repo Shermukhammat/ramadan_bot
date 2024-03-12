@@ -102,15 +102,19 @@ class DataBase:
         elif not admin:
             conection = sqlite3.connect(self.path)
             cursor = conection.cursor()
-
-            if region:
-                cursor.execute(f"INSERT INTO users (id, name, region, registred) VALUES ({id}, '{name}', '{region}', '{registred}');") 
-                self.users[id] = {'name' : name, 'region' : region, 'registred' : registred}
-            else:
-                cursor.execute(f"INSERT INTO users (id, name, registred) VALUES ({id}, '{name}', '{registred}');") 
-                self.users[id] = {'name' : name, 'region' : None, 'registred' : registred}
-                
-            print('New user ', name)
+            try:
+                if region:
+                    cursor.execute(f"INSERT INTO users (id, name, region, registred) VALUES ({id}, '{name}', '{region}', '{registred}');") 
+                    self.users[id] = {'name' : name, 'region' : region, 'registred' : registred}
+                else:
+                    cursor.execute(f"INSERT INTO users (id, name, registred) VALUES ({id}, '{name}', '{registred}');") 
+                    self.users[id] = {'name' : name, 'region' : None, 'registred' : registred}
+                print('New user ', name)
+            except:
+                cursor.execute(f"INSERT INTO users (id, name, registred) VALUES ({id}, 'EROR NAME', '{registred}');") 
+            
+            print(f"EROR NAME: {name}")
+            
 
             conection.commit()
             conection.close()
