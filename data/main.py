@@ -109,11 +109,14 @@ class DataBase:
                 else:
                     cursor.execute(f"INSERT INTO users (id, name, registred) VALUES ({id}, '{name}', '{registred}');") 
                     self.users[id] = {'name' : name, 'region' : None, 'registred' : registred}
-                print('New user ', name)
+                    # with open('erors.txt', 'a') as file:
+                    #     # Write the new text to the file
+                    #     file.write(f"New user {name}")
             except:
                 cursor.execute(f"INSERT INTO users (id, name, registred) VALUES ({id}, 'EROR NAME', '{registred}');") 
-            
-            print(f"EROR NAME: {name}")
+
+
+                # print(f"EROR NAME: {name}")
             
 
             conection.commit()
